@@ -1,0 +1,16 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "expo": "^26.0.0",
+    "lodash": "^4.17.5",
+    "react": "16.3.0-alpha.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
+    "react-navigation": "^1.5.11"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
+    "prettier": "^1.12.1"
+  }
+}

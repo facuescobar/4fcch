@@ -1,0 +1,21 @@
+{
+  "presets": ["babel-preset-expo"],
+  "plugins": [
+    "transform-export-extensions",
+    [
+      "module-resolver",
+      {
+        "cwd": "babelrc",
+        "root": ["./src"],
+        "alias": {
+          "assets": "./assets"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": ["transform-react-jsx-source"]
+    }
+  }
+}
