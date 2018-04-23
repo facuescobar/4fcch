@@ -24,7 +24,17 @@ export default class ContestsScreen extends Screen {
     };
   }
 
-  _renderSectionHeader({ section }) {
+  onLocationPress = initials => {
+    this._navigate(
+      'map',
+      {
+        zoomTo: initials,
+      },
+      true,
+    );
+  };
+
+  _renderSectionHeader = ({ section }) => {
     return (
       <View style={style.sectionHeader}>
         <View style={style.sectionDateContainer}>
@@ -33,7 +43,9 @@ export default class ContestsScreen extends Screen {
         <Text style={style.sectionTitle}>{section.title}</Text>
         <TouchableOpacity
           activeOpacity={0.75}
-          onPress={this.onLocationPress}
+          onPress={() => {
+            this.onLocationPress(section.location);
+          }}
           style={style.sectionLocationButton}
         >
           <MaterialCommunityIcons
@@ -44,9 +56,9 @@ export default class ContestsScreen extends Screen {
         </TouchableOpacity>
       </View>
     );
-  }
+  };
 
-  _renderSection({ item }) {
+  _renderSection = ({ item }) => {
     return (
       <View style={style.item}>
         {item.band && <Text style={style.itemBand}>{item.band}</Text>}
@@ -57,7 +69,7 @@ export default class ContestsScreen extends Screen {
         </Text>
       </View>
     );
-  }
+  };
 
   render() {
     return (

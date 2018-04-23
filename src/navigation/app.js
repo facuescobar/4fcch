@@ -115,7 +115,7 @@ export default TabNavigator(
         fontSize: 14,
       },
     },
-    initialRouteName: 'jury',
+    initialRouteName: 'home',
   },
 );
 

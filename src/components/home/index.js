@@ -17,9 +17,9 @@ export default class HomeScreen extends Screen {
   };
 
   componentDidMount() {
-    // setTimeout(() => {
-    //   this.onDayPress('sabado', 'SAbado');
-    // }, 500);
+    setTimeout(() => {
+      this.onDayPress('sabado', 'Sabado');
+    }, 500);
   }
 
   onDayPress = (day, title) => {

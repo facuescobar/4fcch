@@ -4,6 +4,7 @@
 
 export default {
   initialRegion: {
+    // All Regions
     latitude: -35.56431436585966,
     latitudeDelta: 0.08073057240716253,
     longitude: -57.99510050565004,
@@ -19,20 +20,25 @@ export default {
         latitude: -35.5790048,
         longitude: -58.0142252,
       },
-      color: '#F26522',
-    },
-    {
-      initials: 'CC',
-      title: 'Casa de Casco',
-      description: '',
-      address: 'Sarmiento 80',
-      coords: {
-        latitude: -35.5794292,
-        longitude: -58.0141136,
+      coordsZoom: {
+        longitudeDelta: 0.004279464483268214,
+        latitudeDelta: 0.004720217865283871,
+        longitude: -58.014227002859116,
+        latitude: -35.57825075953732,
       },
-      color: '#F22C22',
-      initialsRight: true,
     },
+    // {
+    //   initials: 'CC',
+    //   title: 'Casa de Casco',
+    //   description: '',
+    //   address: 'Sarmiento 80',
+    //   coords: {
+    //     latitude: -35.5794292,
+    //     longitude: -58.0141136,
+    //   },
+    //   color: '#F22C22',
+    //   initialsRight: true,
+    // },
     {
       initials: 'EF',
       title: 'Estación Ferroviaria',
@@ -42,7 +48,12 @@ export default {
         latitude: -35.5709625,
         longitude: -58.0158718,
       },
-      color: '#159689',
+      coordsZoom: {
+        longitudeDelta: 0.0055836886167526245,
+        latitudeDelta: 0.0061584991106045095,
+        longitude: -58.01586851477623,
+        latitude: -35.56948853897862,
+      },
     },
     {
       initials: 'CP',
@@ -52,6 +63,12 @@ export default {
       coords: {
         latitude: -35.5778354,
         longitude: -58.0159768,
+      },
+      coordsZoom: {
+        longitudeDelta: 0.004761591553688049,
+        latitudeDelta: 0.005251495082589486,
+        longitude: -58.015979155898094,
+        latitude: -35.57699583429899,
       },
     },
     {
@@ -63,6 +80,12 @@ export default {
         latitude: -35.5557554,
         longitude: -58.0159528,
       },
+      coordsZoom: {
+        longitudeDelta: 0.005051940679557276,
+        latitudeDelta: 0.005573174527654601,
+        longitude: -58.0159493163228,
+        latitude: -35.554858119850714,
+      },
     },
     {
       initials: 'BEH',
@@ -73,7 +96,12 @@ export default {
         latitude: -35.5709082,
         longitude: -57.9996735,
       },
-      color: '#18AA60',
+      coordsZoom: {
+        longitudeDelta: 0.0047113001346588135,
+        latitudeDelta: 0.0051963143087263575,
+        longitude: -57.99967300146819,
+        latitude: -35.57008416810645,
+      },
     },
     {
       initials: 'BEP',
@@ -84,7 +112,12 @@ export default {
         latitude: -35.5755297,
         longitude: -57.9705319,
       },
-      color: '#D81E57',
+      coordsZoom: {
+        longitudeDelta: 0.007596686482422399,
+        latitudeDelta: 0.008379068387810662,
+        longitude: -57.9705361649394,
+        latitude: -35.57368904103088,
+      },
     },
   ],
 };

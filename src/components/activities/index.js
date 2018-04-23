@@ -37,8 +37,16 @@ export default class ActivitiesScreen extends Screen {
   onItemPressDisabled = true;
   onItemPress = () => {};
 
-  onLocationPressDisabled = true;
-  onLocationPress = () => {};
+  onLocationPressDisabled = false;
+  onLocationPress = initials => {
+    this._navigate(
+      'map',
+      {
+        zoomTo: initials,
+      },
+      true,
+    );
+  };
 
   _renderActivity = ({ item, index }) => {
     const location = find(this.state.locations, { initials: item.location });
@@ -86,7 +94,9 @@ export default class ActivitiesScreen extends Screen {
 
         <TouchableOpacity
           activeOpacity={0.75}
-          onPress={this.onLocationPress}
+          onPress={() => {
+            this.onLocationPress(location.initials);
+          }}
           disabled={this.onLocationPressDisabled}
           style={style.itemLocation}
         >

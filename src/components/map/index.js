@@ -15,7 +15,7 @@ import { MapView } from 'expo';
 import Screen from 'components/screen';
 import { Color } from 'styles';
 import Config from 'config';
-import { map } from 'lodash';
+import { find, map } from 'lodash';
 import MarkerInfo from './modules/marker-info';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -29,27 +29,63 @@ export default class MapScreen extends Screen {
   constructor(props) {
     super(props);
 
+    const { params } = props.navigation.state;
+
+    // Set Regions
     this.regions = Config.map.regions;
 
+    let initialRegion = Config.map.initialRegion;
+    let regionTmp;
+
+    // Set initial region
+    if (params && params.zoomTo) {
+      regionTmp = find(this.regions, { initials: params.zoomTo });
+
+      if (regionTmp) {
+        initialRegion = regionTmp.coordsZoom;
+      }
+    }
+
     this.state = {
-      showRegionInfo: false,
-      region: this.regions[0],
+      showRegionInfo: Boolean(regionTmp),
+      initialRegion,
+      region: regionTmp,
     };
   }
 
-  onMapLayout = () => {
+  componentWillReceiveProps(nextProps) {
+    const { params } = nextProps.navigation.state;
+
+    if (params && params.zoomTo) {
+      let nextRegion;
+      let regionTmp;
+
+      regionTmp = find(this.regions, { initials: params.zoomTo });
+
+      if (regionTmp) {
+        nextRegion = regionTmp.coordsZoom;
+
+        this.setState(
+          {
+            showRegionInfo: true,
+            region: regionTmp,
+          },
+          () => {
+            this._animateToRegion(nextRegion);
+          },
+        );
+      }
+    }
+  }
+
+  _animateToRegion(region) {
     setTimeout(() => {
-      this.mapView.animateToRegion(Config.map.initialRegion, 500);
-      // this.mapView.fitToElements(true);
-      // this.mapView.animateToCoordinate({
-      //   coordinate: Config.map.initialRegion,
-      //   duration: 500,
-      // });
-    }, 1000);
-    // this.mapView.fitToCoordinates(this.regions, {
-    //   edgePadding: { top: 10, right: 10, bottom: 10, left: 10 },
-    //   animated: false,
-    // });
+      this.mapView.animateToRegion(region, 1000);
+    }, 750);
+  }
+
+  onMapLayout = () => {
+    this._animateToRegion(this.state.initialRegion);
   };
 
   onMarkerPress = region => {
@@ -90,9 +126,9 @@ export default class MapScreen extends Screen {
           provider={'google'}
           zoomEnabled={true}
           scrollEnabled={true}
-          onRegionChange={region => {
-            console.log(region);
-          }}
+          // onRegionChange={region => {
+          //   console.log(region);
+          // }}
           // onPress={()=>{}}
           // onMarkerPress={()=>{}}
           onLayout={this.onMapLayout}
@@ -101,6 +137,7 @@ export default class MapScreen extends Screen {
           >
           {map(this.regions, this._renderMapMarker)}
         </MapView>
+
         <MarkerInfo
           visible={this.state.showRegionInfo}
           region={this.state.region}
@@ -117,6 +154,28 @@ export default class MapScreen extends Screen {
         {this._render()}
       </SafeAreaView>
     );
+  }
+
+  _regionFrom(lat, lon, distance) {
+    distance = distance / 2;
+    const circumference = 40075;
+    const oneDegreeOfLatitudeInMeters = 111.32 * 1000;
+    const angularDistance = distance / circumference;
+
+    const latitudeDelta = distance / oneDegreeOfLatitudeInMeters;
+    const longitudeDelta = Math.abs(
+      Math.atan2(
+        Math.sin(angularDistance) * Math.cos(lat),
+        Math.cos(angularDistance) - Math.sin(lat) * Math.sin(lat),
+      ),
+    );
+
+    return (result = {
+      latitude: lat,
+      longitude: lon,
+      latitudeDelta,
+      longitudeDelta,
+    });
   }
 
   _getRegionForCoordinates(points) {
@@ -149,28 +208,6 @@ export default class MapScreen extends Screen {
       latitudeDelta: deltaX,
       longitudeDelta: deltaY,
     };
-  }
-
-  _regionFrom(lat, lon, distance) {
-    distance = distance / 2;
-    const circumference = 40075;
-    const oneDegreeOfLatitudeInMeters = 111.32 * 1000;
-    const angularDistance = distance / circumference;
-
-    const latitudeDelta = distance / oneDegreeOfLatitudeInMeters;
-    const longitudeDelta = Math.abs(
-      Math.atan2(
-        Math.sin(angularDistance) * Math.cos(lat),
-        Math.cos(angularDistance) - Math.sin(lat) * Math.sin(lat),
-      ),
-    );
-
-    return (result = {
-      latitude: lat,
-      longitude: lon,
-      latitudeDelta,
-      longitudeDelta,
-    });
   }
 }
 

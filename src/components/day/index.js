@@ -24,8 +24,8 @@ export default class DayScreen extends Screen {
 
     return (
       <DayNavigator
-        // navigation={this.props.navigation}
         screenProps={{
+          navigation: this.props.navigation,
           ...this.state.day,
           locations: Config.map.regions,
         }}
