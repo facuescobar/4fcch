@@ -42,38 +42,47 @@ export default {
           {
             title: 'Adela',
             author: 'Evangelina Montes',
+            tag: 'Ficción',
           },
           {
             title: 'Amanece',
             author: 'Emiliano Romero',
+            tag: 'Ficción',
           },
           {
             title: 'Umwelt',
             author: 'Toia Bonino',
+            tag: 'Documental',
           },
           {
             title: 'La sombra quema',
             author: 'Ezequiel Yoffe',
+            tag: 'Ficción',
           },
           {
             title: 'Los exploradores',
             author: 'Acosta, Bolloqui, Salas',
+            tag: 'Ficción',
           },
           {
             title: 'Pixied',
             author: 'Agostina Ravazzola, Gabriela Sorroza',
+            tag: 'Animación',
           },
           {
             title: 'Desconocidos',
             author: 'Sebastián Rodríguez',
+            tag: 'Ficción',
           },
           {
             title: 'Centauro',
             author: 'Nicolás Suárez',
+            tag: 'Ficción',
           },
           {
             title: 'La abadía',
             author: 'Ezequiel Pierri',
+            tag: 'Documental',
           },
         ],
       },
@@ -156,42 +165,52 @@ export default {
           {
             title: 'Monstruo',
             author: 'Santiago Angel Fabrizio',
+            tag: 'Ficción',
           },
           {
             title: 'Detrás del fuego',
             author: 'Lucas Prieto',
+            tag: 'Documental',
           },
           {
             title: 'Las Hormigas',
             author: 'Mariana Wainstein',
+            tag: 'Ficción',
           },
           {
             title: 'Corp.',
             author: 'Pablo Polledri',
+            tag: 'Animación',
           },
           {
             title: 'Ike, irse lejos',
             author: 'Sofía Prado',
+            tag: 'Ficción',
           },
           {
             title: 'Estuve, exísto',
             author: 'Manuel Federico Pérez Martins',
+            tag: 'Documental',
           },
           {
             title: 'Lucía o un cortometraje sobre el amor',
             author: 'Manuel Setton',
+            tag: 'Ficción',
           },
           {
             title: 'Chico Miguel',
             author: 'Maximiliano Subiela',
+            tag: 'Ficción',
           },
           {
             title: 'Trainspotter',
             author: 'Ignacio Masllorens',
+            tag: 'Documental',
           },
           {
             title: 'Mauro & Olivia',
             author: 'Eduardo Elli',
+            tag: 'Ficción',
           },
         ],
       },
@@ -305,38 +324,47 @@ export default {
           {
             title: 'Hesperidina express',
             author: 'Franco Cerana',
+            tag: 'Ficción',
           },
           {
             title: 'Los invasores',
             author: 'Juan Francisco Zini',
+            tag: 'Ficción',
           },
           {
             title: 'Máquina de café',
             author: 'Nicolás Turjanski',
+            tag: 'Documental',
           },
           {
             title: 'Mombyry',
             author: 'Fremdina Bianco',
+            tag: 'Ficción',
           },
           {
             title: 'La restauración',
             author: 'Leonardo Druventi',
+            tag: 'Ficción',
           },
           {
             title: 'Del mar a la luna',
             author: 'Ramiro Maldini',
+            tag: 'Animación',
           },
           {
             title: 'Trato',
             author: 'Gisela Benenzon',
+            tag: 'Ficción',
           },
           {
             title: 'Amalia y Eduardo',
             author: 'Tomás Morelli',
+            tag: 'Ficción',
           },
           {
             title: 'Y en eso se fue Fidel',
             author: 'Matías Mera',
+            tag: 'Documental',
           },
         ],
       },

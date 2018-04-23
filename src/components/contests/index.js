@@ -62,6 +62,10 @@ export default class ContestsScreen extends Screen {
     return (
       <View style={style.item}>
         {item.band && <Text style={style.itemBand}>{item.band}</Text>}
+        {item.tag && (
+          <Text style={style.itemTag}>{item.tag.toUpperCase()}</Text>
+        )}
+
         <Text style={style.itemTitle}>{item.title}</Text>
         <Text style={style.itemAuthor}>
           <Text style={style.itemAuthorPre}>{'de '}</Text>
@@ -143,6 +147,15 @@ const style = StyleSheet.create({
     borderBottomWidth: 2,
   },
   itemBand: {
+    fontSize: 14,
+    fontWeight: '300',
+    color: Color.grayNormal,
+    paddingBottom: 2,
+  },
+  itemTag: {
+    fontSize: 14,
+    fontWeight: '300',
+    color: Color.grayNormal,
     paddingBottom: 2,
   },
   itemTitle: {
