@@ -118,7 +118,7 @@ export default {
     title: 'Sabado 4',
     activities: [
       {
-        title: 'Seminario Práctico Stop Motion',
+        title: 'Seminario práctico Stop Motion',
         date: '10 a 14hs',
         description:
           'A cargo de Matías Fiandrino y Pablo Ceccarelli.\n\nLos trabajos realizados en el seminario serán proyectados en el cierre del festival.',
@@ -188,7 +188,7 @@ export default {
             tag: 'Ficción',
           },
           {
-            title: 'Estuve, exísto',
+            title: 'Estuve, existo',
             author: 'Manuel Federico Pérez Martins',
             tag: 'Documental',
           },
@@ -251,7 +251,7 @@ export default {
           },
           {
             band: 'Fus Delei',
-            title: 'Caída Libre',
+            title: 'Caída libre',
             author: 'Luciana Demichelis',
           },
           {
@@ -277,7 +277,7 @@ export default {
         location: 'TB',
         data: [
           {
-            title: 'Al Borde',
+            title: 'Al borde',
             author: 'Ana Katz',
           },
         ],
