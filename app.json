@@ -24,7 +24,8 @@
       "buildNumber": "2"
     },
     "android": {
-      "package": "com.facuescobar.4fcch"
+      "package": "com.facuescobar.4fcch",
+      "versionCode": 2
     }
   }
 }
