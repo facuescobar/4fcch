@@ -18,12 +18,6 @@ export default class HomeScreen extends Screen {
     scrollEnabled: false,
   };
 
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     this.onDayPress('sabado', 'Sábado 5');
-  //   });
-  // }
-
   onDayPress = (day, title) => {
     this._navigate('day', {
       day,
@@ -76,6 +70,9 @@ export default class HomeScreen extends Screen {
         {this._renderDay('viernes', 'Viernes 4', new Date(2018, 4, 4))}
         {this._renderDay('sabado', 'Sábado 5', new Date(2018, 4, 5))}
         {this._renderDay('domingo', 'Domingo 6', new Date(2018, 4, 6))}
+        <View style={style.free}>
+          <Text style={style.freeMessage}>{'entrada libre y gratuita'}</Text>
+        </View>
       </View>
     );
   }
@@ -130,5 +127,18 @@ const style = StyleSheet.create({
   },
   buttonDayIconActive: {
     color: Color.white,
+  },
+  free: {
+    borderTopWidth: 2,
+    borderColor: Color.grayHighlight,
+  },
+  freeMessage: {
+    textAlign: 'center',
+    fontSize: 16,
+    padding: 10,
+    paddingHorizontal: 20,
+    fontFamily: TextStyle.boldSC,
+    color: Color.white,
+    backgroundColor: Color.orangeNormal,
   },
 });
