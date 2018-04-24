@@ -20,7 +20,8 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.facuescobar.4fcch"
+      "bundleIdentifier": "com.facuescobar.4fcch",
+      "buildNumber": 2
     },
     "android": {
       "package": "com.facuescobar.4fcch"
