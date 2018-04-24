@@ -18,11 +18,11 @@ export default class HomeScreen extends Screen {
     scrollEnabled: false,
   };
 
-  componentDidMount() {
-    // setTimeout(() => {
-    //   this.onDayPress('sabado', 'Sábado');
-    // }, 500);
-  }
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.onDayPress('sabado', 'Sábado 5');
+  //   });
+  // }
 
   onDayPress = (day, title) => {
     this._navigate('day', {
@@ -73,11 +73,6 @@ export default class HomeScreen extends Screen {
           />
         </View>
         {this._renderDay('jueves', 'Jueves 3 - Apertura', new Date(2018, 4, 3))}
-        {this._renderDay(
-          'jueves',
-          'Jueves 3 - Apertura',
-          new Date(2018, 3, 24),
-        )}
         {this._renderDay('viernes', 'Viernes 4', new Date(2018, 4, 4))}
         {this._renderDay('sabado', 'Sábado 5', new Date(2018, 4, 5))}
         {this._renderDay('domingo', 'Domingo 6', new Date(2018, 4, 6))}

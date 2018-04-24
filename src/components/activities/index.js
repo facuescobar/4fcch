@@ -3,16 +3,11 @@
  */
 
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { Text } from 'components/utils';
 import Screen from 'components/screen';
 import Config from 'config';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 import {
   MaterialCommunityIcons,
   MaterialIcons,
@@ -169,14 +164,14 @@ const style = StyleSheet.create({
   },
   itemDate: {
     fontSize: 17,
-    fontWeight: '900',
+    fontFamily: TextStyle.black,
     color: Color.grayDark,
   },
   itemTitle: {
     flex: 1,
     alignSelf: 'center',
     fontSize: 17,
-    fontWeight: '900',
+    fontFamily: TextStyle.semiBoldSC,
     paddingLeft: 10,
     color: Color.orangeNormal,
   },
@@ -190,8 +185,7 @@ const style = StyleSheet.create({
     fontSize: 14,
   },
   itemDescriptionTitle: {
-    fontWeight: '700',
-    fontStyle: 'italic',
+    fontFamily: TextStyle.boldIta,
   },
   itemDescription: {},
 
@@ -203,10 +197,11 @@ const style = StyleSheet.create({
     color: Color.orangeNormal,
   },
   itemExtraTitle: {
-    fontWeight: '700',
+    fontFamily: TextStyle.bold,
   },
   itemExtraDescription: {
-    color: Color.grayNormal,
+    color: Color.grayLight,
+    fontFamily: TextStyle.medIta,
   },
 
   /* Info */
@@ -235,18 +230,19 @@ const style = StyleSheet.create({
   },
   itemLocationInitials: {
     fontSize: 16,
-    fontWeight: '900',
+    fontFamily: TextStyle.black,
     marginRight: 5,
     color: Color.grayDark,
   },
   itemLocationTitle: {
-    fontWeight: '700',
+    fontFamily: TextStyle.bold,
     color: Color.grayDark,
     marginRight: 5,
   },
   itenLocationAdress: {
     flex: 1,
     color: Color.grayLight,
+    fontFamily: TextStyle.bookIta,
   },
   itemLocationArrow: {
     fontSize: 20,

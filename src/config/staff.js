@@ -22,13 +22,13 @@ export default {
     },
     { title: 'Diseño e Imagen', list: ['Ignacio Marconi'] },
     { title: 'Audiovisual', list: ['Santiago Peralta'] },
-    { title: 'Applicación Mobile', list: ['Facu Escobar'] },
+    { title: 'Desarrollo Web-Mobile', list: ['Facu Escobar'] },
 
     { title: 'Proyectorista', list: ['Lolo Armendáriz', 'Estefanía Di Capua'] },
     { title: 'Fotógrafas', list: ['Teresa Mir', 'Paula Heid'] },
     {
       title: 'Cobertura de Video',
-      list: ['Algo Pasa: Belen Peralta - Santiago Peralta'],
+      list: ['Algo Pasa', 'Belén Peralta', 'Santiago Peralta'],
     },
     { title: 'Prensa', list: ['Mary Escobar'] },
     {

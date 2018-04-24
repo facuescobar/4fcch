@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, TabBarBottom } from 'react-navigation';
 import { tabNavigatorProps } from 'navigation';
 import HomeNavigator from 'navigation/home';
 import MapScreen from 'components/map';
@@ -104,12 +104,15 @@ export default TabNavigator(
   },
   {
     ...tabNavigatorProps,
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
     tabBarOptions: {
       ...tabNavigatorProps.tabBarOptions,
       activeTintColor: Color.orangeNormal,
       inactiveTintColor: Color.grayLight,
       style: {
         height: 60,
+        backgroundColor: Color.screenBackground,
       },
       labelStyle: {
         fontSize: 14,

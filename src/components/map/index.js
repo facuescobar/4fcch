@@ -126,15 +126,9 @@ export default class MapScreen extends Screen {
           provider={'google'}
           zoomEnabled={true}
           scrollEnabled={true}
-          // onRegionChange={region => {
-          //   console.log(region);
-          // }}
-          // onPress={()=>{}}
-          // onMarkerPress={()=>{}}
           onLayout={this.onMapLayout}
-        >
           showsUserLocation={true}
-          >
+        >
           {map(this.regions, this._renderMapMarker)}
         </MapView>
 
@@ -146,10 +140,15 @@ export default class MapScreen extends Screen {
       </View>
     );
   }
-
+  // onRegionChange={region => {
+  //   console.log(region);
+  // }}
+  // onPress={()=>{}}
+  // onMarkerPress={()=>{}}
   render() {
     return (
       <SafeAreaView style={style.container}>
+        {this._renderStatusBar()}
         {this._renderScreenTitle()}
         {this._render()}
       </SafeAreaView>

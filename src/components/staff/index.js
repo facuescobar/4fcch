@@ -3,12 +3,13 @@
  */
 
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { Text } from 'components/utils';
 import Screen from 'components/screen';
-import { Color, TextStyle } from 'styles';
+import { Color, TextStyle, Device } from 'styles';
 import Config from 'config';
 import { map } from 'lodash';
+import assets from 'assets';
 
 export default class StaffScreen extends Screen {
   screenTitle = 'Staff';
@@ -35,6 +36,13 @@ export default class StaffScreen extends Screen {
   _render() {
     return (
       <View style={style.container}>
+        <View style={style.logoContainer}>
+          <Image
+            source={assets.caminoamarilloorganiza}
+            resizeMode={'contain'}
+            style={style.logo}
+          />
+        </View>
         <Text style={style.message}>{Config.staff.message}</Text>
         <View style={style.staff}>
           {map(Config.staff.list, this._renderStaffSection)}
@@ -48,6 +56,16 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
+  },
+  logoContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    marginBottom: 30,
+  },
+  logo: {
+    width: Device.width() * 0.4,
+    height: Device.width() * 0.4,
   },
   message: {
     fontSize: 16,

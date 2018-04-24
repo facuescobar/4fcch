@@ -4,9 +4,9 @@
 
 import React, { Component } from 'react';
 import { SafeAreaView, ScrollView, View, StyleSheet } from 'react-native';
-import { Text } from 'components/utils';
+import { Text, StatusBar } from 'components/utils';
 import { NavigationActions } from 'react-navigation';
-import { Color, TextStyle } from 'styles';
+import { Color, TextStyle, Platform } from 'styles';
 export default class Screen extends Component {
   screenBackground = Color.screenBackground;
 
@@ -33,11 +33,20 @@ export default class Screen extends Component {
     );
   }
 
+  _renderStatusBar() {
+    if (Platform.isIOS) {
+      return null;
+    }
+
+    return <StatusBar />;
+  }
+
   render() {
     return (
       <SafeAreaView
         style={[style.container, { backgroundColor: this.screenBackground }]}
       >
+        {this._renderStatusBar()}
         {this.screenTitle && this._renderScreenTitle()}
         <ScrollView
           contentContainerStyle={[this.fixedSrollView && style.container]}
