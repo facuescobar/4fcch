@@ -89,7 +89,7 @@ export default class HomeScreen extends Screen {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Color.screenBackground,
+    backgroundColor: Color.white,
   },
   logoContainer: {
     flex: 1,

@@ -6,7 +6,7 @@ import { fonts } from 'assets';
 import { reduce } from 'lodash';
 
 export const Color = {
-  screenBackground: '#ffffff',
+  screenBackground: '#F7F7F7',
   white: '#ffffff',
   black: '#000000',
 

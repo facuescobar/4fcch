@@ -144,8 +144,9 @@ export const StatusBarContentStyle = {
  * @Description: update status bar style when screen change
  */
 
+const statusBarAnimated = true;
 let statusBarHidden = false;
-let statusBarStyle = StatusBarContentStyle.light;
+let statusBarStyle = StatusBarContentStyle.dark;
 
 export function onNavigationStateChange(prevState, currentState) {
   const currentScreen = getCurrentScreen(currentState);
@@ -155,11 +156,8 @@ export function onNavigationStateChange(prevState, currentState) {
 
   if (prevScreen !== currentScreen) {
     switch (currentScreen) {
+      case 'jury':
       case 'home':
-      case 'jury': {
-        newStatusBarStyle = StatusBarContentStyle.light;
-        break;
-      }
       case 'map':
       case 'staff':
       case 'sponsors': {
@@ -170,17 +168,17 @@ export function onNavigationStateChange(prevState, currentState) {
 
     if (!newStatusBarHidden && newStatusBarStyle !== statusBarStyle) {
       statusBarStyle = newStatusBarHidden;
-      StatusBar.setBarStyle(newStatusBarStyle);
+      StatusBar.setBarStyle(newStatusBarStyle, statusBarAnimated);
     }
 
     if (newStatusBarHidden !== statusBarHidden) {
       statusBarHidden = newStatusBarHidden;
-      StatusBar.setHidden(newStatusBarHidden);
+      StatusBar.setHidden(newStatusBarHidden, statusBarAnimated);
     }
   }
 }
 
 /* Initialize Status Bar */
 
-StatusBar.setHidden(statusBarHidden);
-StatusBar.setBarStyle(statusBarStyle);
+StatusBar.setHidden(statusBarHidden, statusBarAnimated);
+StatusBar.setBarStyle(statusBarStyle, statusBarAnimated);

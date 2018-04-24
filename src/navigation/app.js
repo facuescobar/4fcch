@@ -113,6 +113,7 @@ export default TabNavigator(
       },
       labelStyle: {
         fontSize: 14,
+        paddingBottom: 5,
       },
     },
     initialRouteName: 'home',

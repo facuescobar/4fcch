@@ -8,7 +8,7 @@ import { Text } from 'components/utils';
 import { NavigationActions } from 'react-navigation';
 import { Color, TextStyle } from 'styles';
 export default class Screen extends Component {
-  screenBackground = Color.grayBlack;
+  screenBackground = Color.screenBackground;
 
   _navigate(routeName, routeParams, useScreenPropsNavigator = false) {
     const props = useScreenPropsNavigator ? this.props.screenProps : this.props;
