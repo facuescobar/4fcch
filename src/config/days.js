@@ -292,7 +292,7 @@ export default {
     title: 'Domingo 6',
     activities: [
       {
-        title: 'Taller Práctico de Cine',
+        title: 'Taller práctico de Cine',
         date: '10 a 14hs',
         descriptionTitle: 'Para adolecentes y adultos, ',
         description:
