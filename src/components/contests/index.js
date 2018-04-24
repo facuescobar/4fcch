@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Screen from 'components/screen';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default class ContestsScreen extends Screen {
@@ -115,28 +115,29 @@ const style = StyleSheet.create({
   },
   sectionDate: {
     fontSize: 17,
-    fontWeight: '900',
+    fontFamily: TextStyle.black,
     color: Color.white,
   },
   sectionTitle: {
     flex: 1,
     fontSize: 17,
-    fontWeight: '900',
+    fontFamily: TextStyle.semiBoldSC,
     color: Color.white,
     paddingLeft: 10,
   },
   sectionLocationButton: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   sectionLocationIcon: {
-    fontSize: 17,
+    fontSize: 20,
     color: Color.orangeNormal,
     marginRight: 5,
   },
   sectionLocationText: {
     fontSize: 17,
     color: Color.white,
-    fontWeight: '900',
+    fontFamily: TextStyle.black,
   },
 
   /* Section item */
@@ -148,26 +149,23 @@ const style = StyleSheet.create({
   },
   itemBand: {
     fontSize: 14,
-    fontWeight: '300',
     color: Color.grayNormal,
-    paddingBottom: 2,
+    paddingBottom: 3,
   },
   itemTag: {
     fontSize: 14,
-    fontWeight: '300',
     color: Color.grayNormal,
-    paddingBottom: 2,
+    paddingBottom: 3,
   },
   itemTitle: {
     fontSize: 17,
-    fontWeight: '900',
+    fontFamily: TextStyle.black,
     color: Color.orangeNormal,
-    paddingBottom: 2,
+    paddingBottom: 3,
   },
   itemAuthor: {
-    fontSize: 14,
-    fontWeight: '600',
-    fontStyle: 'italic',
+    fontSize: 15,
+    fontFamily: TextStyle.bookIta,
   },
   itemAuthorPre: {
     fontWeight: '400',

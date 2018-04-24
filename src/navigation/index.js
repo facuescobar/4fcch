@@ -2,7 +2,8 @@
  * Navigation
  */
 
-import { Color } from 'styles';
+import { StatusBar } from 'react-native';
+import { Color, TextStyle } from 'styles';
 import { merge } from 'lodash';
 
 export const stackNavigationOptionsDefault = {
@@ -13,7 +14,7 @@ export const stackNavigationOptionsDefault = {
   },
   headerTitleStyle: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: TextStyle.bold,
     alignSelf: 'center',
     textAlign: 'center',
   },
@@ -111,3 +112,75 @@ export function tabNavigationOptions(customOptions = {}) {
     };
   };
 }
+
+/*
+ * getCurrentScreen
+ * @Description: recursive function to get the current screen from navigation state
+ */
+
+function getCurrentScreen(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+
+  if (route.routes) {
+    return getCurrentScreen(route);
+  }
+  return route.routeName;
+}
+
+/*
+ * StatusBarContentStyle
+ */
+
+export const StatusBarContentStyle = {
+  light: 'light-content',
+  dark: 'dark-content',
+};
+
+/*
+ * onNavigationStateChange
+ * @Description: update status bar style when screen change
+ */
+
+let statusBarHidden = false;
+let statusBarStyle = StatusBarContentStyle.light;
+
+export function onNavigationStateChange(prevState, currentState) {
+  const currentScreen = getCurrentScreen(currentState);
+  const prevScreen = getCurrentScreen(prevState);
+  let newStatusBarStyle = StatusBarContentStyle.light;
+  let newStatusBarHidden = false;
+
+  if (prevScreen !== currentScreen) {
+    switch (currentScreen) {
+      case 'home':
+      case 'jury': {
+        newStatusBarStyle = StatusBarContentStyle.light;
+        break;
+      }
+      case 'map':
+      case 'staff':
+      case 'sponsors': {
+        newStatusBarStyle = StatusBarContentStyle.dark;
+        break;
+      }
+    }
+
+    if (!newStatusBarHidden && newStatusBarStyle !== statusBarStyle) {
+      statusBarStyle = newStatusBarHidden;
+      StatusBar.setBarStyle(newStatusBarStyle);
+    }
+
+    if (newStatusBarHidden !== statusBarHidden) {
+      statusBarHidden = newStatusBarHidden;
+      StatusBar.setHidden(newStatusBarHidden);
+    }
+  }
+}
+
+/* Initialize Status Bar */
+
+StatusBar.setHidden(statusBarHidden);
+StatusBar.setBarStyle(statusBarStyle);

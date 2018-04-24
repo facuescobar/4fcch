@@ -1,14 +1,23 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { Asset, AppLoading } from 'expo';
+import { onNavigationStateChange } from 'navigation';
 import AppNavigator from 'navigation/app';
-import assets from './assets';
+import assets, { fonts } from './assets';
 import { map } from 'lodash';
+import { Font } from 'expo';
 
 export default class App extends React.Component {
   state = {
     isReady: false,
+    fontLoaded: false,
   };
+
+  async componentDidMount() {
+    await Font.loadAsync(fonts);
+
+    this.setState({ fontLoaded: true });
+  }
 
   async _cacheResourcesAsync() {
     const cacheImages = map(assets, image => {
@@ -27,10 +36,10 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isReady) {
+    if (!this.state.isReady || !this.state.fontLoaded) {
       return this._renderLoading();
     }
 
-    return <AppNavigator />;
+    return <AppNavigator onNavigationStateChange={onNavigationStateChange} />;
   }
 }

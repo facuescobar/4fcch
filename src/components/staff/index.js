@@ -3,14 +3,16 @@
  */
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Text } from 'components/utils';
 import Screen from 'components/screen';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 import Config from 'config';
 import { map } from 'lodash';
 
 export default class StaffScreen extends Screen {
   screenTitle = 'Staff';
+  screenBackground = Color.white;
 
   _renderStaffPerson = (staffPerson, index) => {
     return (
@@ -49,7 +51,6 @@ const style = StyleSheet.create({
   },
   message: {
     fontSize: 16,
-    color: Color.textNormal,
     paddingHorizontal: 20,
   },
   staff: {
@@ -59,14 +60,14 @@ const style = StyleSheet.create({
     marginBottom: 10,
   },
   staffSectionTitle: {
-    color: Color.textNormal,
     fontSize: 18,
-    fontWeight: '800',
+    fontFamily: TextStyle.bold,
     marginBottom: 10,
   },
   staffSectionPerson: {
     marginLeft: 5,
-    fontSize: 14,
+    fontSize: 16,
     padding: 5,
+    fontFamily: TextStyle.bookIta,
   },
 });

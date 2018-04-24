@@ -7,7 +7,7 @@ import { TabNavigator } from 'react-navigation';
 import { tabNavigatorProps } from 'navigation';
 import ActivitiesScreen from 'components/activities';
 import ContestsScreen from 'components/contests';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 
 const activities = {
   screen: ActivitiesScreen,
@@ -39,7 +39,7 @@ const dayNavigatorProps = {
     },
     labelStyle: {
       fontSize: 14,
-      fontWeight: '700',
+      fontFamily: TextStyle.bold,
     },
   },
 };

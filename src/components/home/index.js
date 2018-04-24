@@ -3,12 +3,14 @@
  */
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text } from 'components/utils';
 import Screen from 'components/screen';
-import { Color } from 'styles';
+import { TextStyle, Color } from 'styles';
 import assets from 'assets';
 import { MaterialIcons } from '@expo/vector-icons';
 import isToday from 'date-fns/is_today';
+import { map } from 'lodash';
 
 export default class HomeScreen extends Screen {
   fixedSrollView = true;
@@ -17,9 +19,9 @@ export default class HomeScreen extends Screen {
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.onDayPress('sabado', 'Sabado');
-    }, 500);
+    // setTimeout(() => {
+    //   this.onDayPress('sabado', 'Sábado');
+    // }, 500);
   }
 
   onDayPress = (day, title) => {
@@ -70,11 +72,11 @@ export default class HomeScreen extends Screen {
             style={style.logo}
           />
         </View>
-        {/* {this._renderDay('jueves', 'Jueves 3 - APERTURA', new Date(2018, 4, 3))} */}
+        {this._renderDay('jueves', 'Jueves 3 - Apertura', new Date(2018, 4, 3))}
         {this._renderDay(
           'jueves',
           'Jueves 3 - Apertura',
-          new Date(2018, 3, 22),
+          new Date(2018, 3, 24),
         )}
         {this._renderDay('viernes', 'Viernes 4', new Date(2018, 4, 4))}
         {this._renderDay('sabado', 'Sábado 5', new Date(2018, 4, 5))}
@@ -103,7 +105,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     borderTopWidth: 2,
     borderColor: Color.grayHighlight,
-    backgroundColor: Color.grayBlack,
+    backgroundColor: Color.white,
     padding: 20,
     paddingVertical: 15,
   },
@@ -113,24 +115,23 @@ const style = StyleSheet.create({
   buttonDayText: {
     flex: 1,
     fontSize: 16,
-    fontWeight: '700',
-    color: Color.white,
+    fontFamily: TextStyle.bold,
   },
   buttonDayTextActive: {
     flex: 0,
-    fontWeight: '800',
     color: Color.white,
+    fontFamily: TextStyle.bold,
   },
   buttonTodayText: {
     flex: 1,
     fontSize: 16,
-    fontWeight: '800',
     color: Color.white,
     textAlign: 'right',
+    fontFamily: TextStyle.bold,
   },
   buttonDayIcon: {
     fontSize: 24,
-    color: Color.white,
+    color: Color.textNormal,
   },
   buttonDayIconActive: {
     color: Color.white,

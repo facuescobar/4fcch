@@ -3,16 +3,10 @@
  */
 
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SectionList,
-  Image,
-  Dimensions,
-} from 'react-native';
+import { View, StyleSheet, SectionList, Image, Dimensions } from 'react-native';
+import { Text } from 'components/utils';
 import Screen from 'components/screen';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 import Config from 'config';
 import { map } from 'lodash';
 import assets from 'assets';
@@ -28,6 +22,7 @@ export default class JuryScreen extends Screen {
   scrollViewOptions = {
     scrollEnabled: false,
   };
+  // screenBackground = Color.white;
 
   _renderSectionHeader = ({ section }) => {
     return <Text style={style.sectionTitle}>{section.title}</Text>;
@@ -74,12 +69,13 @@ export default class JuryScreen extends Screen {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Color.white,
   },
   sectionTitle: {
     fontSize: 22,
     padding: 10,
     paddingHorizontal: 20,
-    fontWeight: '300',
+    fontFamily: TextStyle.semiBoldSC,
     color: Color.white,
     backgroundColor: Color.grayBlack,
   },
@@ -97,7 +93,7 @@ const style = StyleSheet.create({
   personName: {
     fontSize: 22,
     color: Color.textNormal,
-    fontWeight: '700',
+    fontFamily: TextStyle.bold,
     paddingBottom: 20,
   },
   personImageContainer: {

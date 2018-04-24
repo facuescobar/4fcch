@@ -2,6 +2,9 @@
  * Style
  */
 
+import { fonts } from 'assets';
+import { reduce } from 'lodash';
+
 export const Color = {
   screenBackground: '#ffffff',
   white: '#ffffff',
@@ -20,7 +23,7 @@ export const Color = {
   orangeRGBA: 'rgba(242,101,34,1)',
 
   textLight: '#58595B',
-  textNormal: '#000000',
+  textNormal: '#333333',
   textHighlight: '#666666',
 
   //Navigation
@@ -48,6 +51,35 @@ export const Touchable = {
       left: left || right || top,
     };
   },
+};
+
+export const TextStyle = {
+  black: 'w-black',
+  blackIta: 'w-black-italic',
+
+  blackSC: 'w-black-sc',
+  blackItaSC: 'w-black-italic',
+
+  bold: 'w-bold',
+  boldIta: 'w-bold-italic',
+
+  boldSC: 'w-bold-sc',
+  boldItaSC: 'w-bold-italic-sc',
+
+  book: 'w-book',
+  bookIta: 'w-book-italic',
+
+  light: 'w-light',
+  lightIta: 'w-light-italic',
+
+  lightSC: 'w-light-sc',
+  lightItaSC: 'w-light-italic-sc',
+
+  med: 'w-medium',
+  medIta: 'w-medium-italic',
+
+  semiBoldSC: 'w-semi-bold-sc',
+  semiBoldItaSC: 'w-semi-bold-italic-sc',
 };
 
 export default {};

@@ -3,10 +3,13 @@
  */
 
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, Text, View, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, View, StyleSheet } from 'react-native';
+import { Text } from 'components/utils';
 import { NavigationActions } from 'react-navigation';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 export default class Screen extends Component {
+  screenBackground = Color.grayBlack;
+
   _navigate(routeName, routeParams, useScreenPropsNavigator = false) {
     const props = useScreenPropsNavigator ? this.props.screenProps : this.props;
 
@@ -32,7 +35,9 @@ export default class Screen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={style.container}>
+      <SafeAreaView
+        style={[style.container, { backgroundColor: this.screenBackground }]}
+      >
         {this.screenTitle && this._renderScreenTitle()}
         <ScrollView
           contentContainerStyle={[this.fixedSrollView && style.container]}
@@ -54,7 +59,7 @@ const style = StyleSheet.create({
     paddingVertical: 20,
     paddingLeft: 20,
     paddingRight: 40,
-    fontWeight: '300',
+    fontFamily: TextStyle.light,
     color: Color.white,
     backgroundColor: Color.orangeNormal,
   },
