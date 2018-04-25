@@ -127,7 +127,6 @@ export default class MapScreen extends Screen {
           zoomEnabled={true}
           scrollEnabled={true}
           onLayout={this.onMapLayout}
-          showsUserLocation={true}
         >
           {map(this.regions, this._renderMapMarker)}
         </MapView>
@@ -140,11 +139,7 @@ export default class MapScreen extends Screen {
       </View>
     );
   }
-  // onRegionChange={region => {
-  //   console.log(region);
-  // }}
-  // onPress={()=>{}}
-  // onMarkerPress={()=>{}}
+
   render() {
     return (
       <SafeAreaView style={style.container}>
