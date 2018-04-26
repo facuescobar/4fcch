@@ -22,7 +22,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.facuescobar.4fcch",
-      "buildNumber": "3"
+      "buildNumber": "4",
+      "infoPlist": {
+        "NSLocationAlwaysUsageDescription":
+          "4FCCh requires access to your location"
+      }
     },
     "android": {
       "package": "com.facuescobar.fcch4",
