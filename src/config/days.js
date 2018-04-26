@@ -12,7 +12,7 @@ export default {
     activities: [
       {
         title: 'Proyección',
-        date: '18:00hs',
+        date: '19:30hs',
         descriptionTitle: '"Gilda, no me arrepiento de este amor"\n',
         description: 'con Natalia Oreiro.',
         location: 'TB',
@@ -124,7 +124,7 @@ export default {
           'A cargo de Matías Fiandrino y Pablo Ceccarelli.\n\nLos trabajos realizados en el seminario serán proyectados en el cierre del festival.',
         extraTitle: 'Inscribite: ',
         extraDescription: 'chascomuscine@gmail.com',
-        location: 'BO',
+        location: 'EF',
       },
       {
         title: 'Taller de Cine | Para todas las edades.',
