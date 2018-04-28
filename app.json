@@ -31,6 +31,11 @@
     "android": {
       "package": "com.facuescobar.fcch4",
       "versionCode": 3,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAIgFxvrBv3jA2Kg4Q1dK-9spJcZwk-ggg"
+        }
+      },
       "permissions": []
     }
   }
