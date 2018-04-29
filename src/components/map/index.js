@@ -13,11 +13,11 @@ import {
 } from 'react-native';
 import { MapView } from 'expo';
 import Screen from 'components/screen';
-import { Color } from 'styles';
+import { Color, TextStyle } from 'styles';
 import Config from 'config';
 import { find, map } from 'lodash';
 import MarkerInfo from './modules/marker-info';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class MapScreen extends Screen {
   screenTitle = 'Mapa';
@@ -50,6 +50,8 @@ export default class MapScreen extends Screen {
       showRegionInfo: Boolean(regionTmp),
       initialRegion,
       region: regionTmp,
+      zoomAll: false,
+      zoomTrack: false,
     };
   }
 
@@ -78,21 +80,34 @@ export default class MapScreen extends Screen {
     }
   }
 
-  _animateToRegion(region) {
+  _animateToRegion(region, delay = 750) {
     setTimeout(() => {
       this.mapView.animateToRegion(region, 1000);
-    }, 750);
+    }, delay);
   }
 
   onMapLayout = () => {
     this._animateToRegion(this.state.initialRegion);
   };
 
-  onMarkerPress = region => {
+  onZoomAllPress = () => {
+    this._animateToRegion(this.state.initialRegion, 0);
     this.setState({
-      showRegionInfo: true,
-      region,
+      showRegionInfo: false,
     });
+  };
+
+  onMarkerPress = region => {
+    this.setState(
+      {
+        zoomAll: true,
+        showRegionInfo: true,
+        region,
+      },
+      () => {
+        this._animateToRegion(region.coordsZoom, 0);
+      },
+    );
   };
 
   onCloseRegionInfoPress = () => {
@@ -136,6 +151,14 @@ export default class MapScreen extends Screen {
           region={this.state.region}
           onCloseInfoPress={this.onCloseRegionInfoPress}
         />
+
+        <TouchableOpacity
+          onPress={this.onZoomAllPress}
+          style={style.seeAllButton}
+          activeOpacity={0.9}
+        >
+          <Ionicons name={'md-qr-scanner'} style={style.seeAllIcon} />
+        </TouchableOpacity>
       </View>
     );
   }
@@ -221,5 +244,20 @@ const style = StyleSheet.create({
   markerIcon: {
     fontSize: 60,
     color: Color.orangeNormal,
+  },
+  seeAllButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    right: 20,
+    bottom: 20,
+    backgroundColor: Color.orangeNormal,
+    padding: 5,
+    borderRadius: 5,
+  },
+  seeAllIcon: {
+    color: Color.white,
+    fontSize: 22,
+    marginBottom: -2,
   },
 });
