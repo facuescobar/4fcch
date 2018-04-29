@@ -253,6 +253,7 @@ const style = StyleSheet.create({
     bottom: 20,
     backgroundColor: Color.orangeNormal,
     padding: 5,
+    paddingHorizontal: 7,
     borderRadius: 5,
   },
   seeAllIcon: {
