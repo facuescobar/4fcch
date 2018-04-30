@@ -91,7 +91,7 @@ export default class MapScreen extends Screen {
   };
 
   onZoomAllPress = () => {
-    this._animateToRegion(this.state.initialRegion, 0);
+    this._animateToRegion(Config.map.initialRegion, 0);
     this.setState({
       showRegionInfo: false,
     });
