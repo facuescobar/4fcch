@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { Asset, AppLoading } from 'expo';
+import { Asset, AppLoading, Updates } from 'expo';
 import { onNavigationStateChange } from 'navigation';
 import AppNavigator from 'navigation/app';
 import assets, { fonts } from './assets';
@@ -14,8 +14,18 @@ export default class App extends React.Component {
   };
 
   async componentDidMount() {
-    await Font.loadAsync(fonts);
+    try {
+      const update = await Updates.checkForUpdateAsync();
+      if (update.isAvailable) {
+        await Updates.fetchUpdateAsync();
 
+        Updates.reloadFromCache();
+      }
+    } catch (error) {
+      // Just continue initializing the app
+    }
+
+    await Font.loadAsync(fonts);
     this.setState({ fontLoaded: true });
   }
 
