@@ -17,7 +17,7 @@ import { Color, TextStyle } from 'styles';
 import Config from 'config';
 import { find, map } from 'lodash';
 import MarkerInfo from './modules/marker-info';
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 export default class MapScreen extends Screen {
   screenTitle = 'Mapa';
@@ -117,6 +117,11 @@ export default class MapScreen extends Screen {
   };
 
   _renderMapMarker = (region, index) => {
+    const isActive =
+      this.state.showRegionInfo &&
+      this.state.region &&
+      this.state.region.initials === region.initials;
+
     return (
       <MapView.Marker
         key={index}
@@ -125,6 +130,7 @@ export default class MapScreen extends Screen {
         onPress={() => {
           this.onMarkerPress(region);
         }}
+        style={[{ opacity: 0.75 }, isActive && { opacity: 1 }]}
       />
     );
   };
@@ -157,7 +163,7 @@ export default class MapScreen extends Screen {
           style={style.seeAllButton}
           activeOpacity={0.9}
         >
-          <Ionicons name={'md-qr-scanner'} style={style.seeAllIcon} />
+          <Entypo name={'location'} style={style.seeAllIcon} />
         </TouchableOpacity>
       </View>
     );
@@ -258,7 +264,7 @@ const style = StyleSheet.create({
   },
   seeAllIcon: {
     color: Color.white,
-    fontSize: 22,
-    marginBottom: -2,
+    fontSize: 20,
+    padding: 2,
   },
 });

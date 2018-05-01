@@ -22,6 +22,7 @@ export default class HomeScreen extends Screen {
     this._navigate('day', {
       day,
       title,
+      dayTitle: title,
     });
   };
 

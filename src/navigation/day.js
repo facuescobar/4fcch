@@ -52,7 +52,6 @@ export function buldDayNavigator(day) {
   };
 
   if (day.contests) {
-    // initialRouteName = 'contests';
     dayNavigator.contests = contests;
   }
 

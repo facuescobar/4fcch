@@ -6,6 +6,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import { navigatorProps, stackNavigationOptions } from 'navigation';
 import HomeScreen from 'components/home';
 import DayScreen from 'components/day';
+import ActivityScreen from 'components/activity';
 
 export default StackNavigator(
   {
@@ -19,6 +20,12 @@ export default StackNavigator(
       screen: DayScreen,
       navigationOptions: stackNavigationOptions({
         title: 'Day',
+      }),
+    },
+    activity: {
+      screen: ActivityScreen,
+      navigationOptions: stackNavigationOptions({
+        title: 'Actividad',
       }),
     },
   },

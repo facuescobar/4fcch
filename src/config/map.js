@@ -27,18 +27,6 @@ export default {
         latitude: -35.57825075953732,
       },
     },
-    // {
-    //   initials: 'CC',
-    //   title: 'Casa de Casco',
-    //   description: '',
-    //   address: 'Sarmiento 80',
-    //   coords: {
-    //     latitude: -35.5794292,
-    //     longitude: -58.0141136,
-    //   },
-    //   color: '#F22C22',
-    //   initialsRight: true,
-    // },
     {
       initials: 'EF',
       title: 'Estación Ferroviaria',

@@ -21,6 +21,7 @@ export default class ActivitiesScreen extends Screen {
     super(props);
 
     this.state = {
+      dayTitle: props.screenProps.dayTitle,
       locations: props.screenProps.locations,
       activities: props.screenProps.activities,
     };
@@ -29,10 +30,19 @@ export default class ActivitiesScreen extends Screen {
   onEmailPressDisabled = true;
   onEmailPress = () => {};
 
-  onItemPressDisabled = true;
-  onItemPress = () => {};
+  onItemPress = (activity, location) => {
+    this._navigate(
+      'activity',
+      {
+        title: activity.page.headerTitle,
+        activity,
+        location,
+      },
+      true,
+    );
+  };
 
-  onLocationPressDisabled = false;
+  onLocationPressDisabled = true;
   onLocationPress = initials => {
     this._navigate(
       'map',
@@ -45,25 +55,23 @@ export default class ActivitiesScreen extends Screen {
 
   _renderActivity = ({ item, index }) => {
     const location = find(this.state.locations, { initials: item.location });
+    const onItemPressDisabled = !Boolean(item.page);
 
     return (
       <View style={style.item}>
         <TouchableOpacity
           activeOpacity={0.75}
-          onPress={this.onItemPress}
-          disabled={this.onItemPressDisabled}
+          onPress={() => {
+            this.onItemPress(item, location);
+          }}
+          disabled={onItemPressDisabled}
         >
           <View style={style.itemHead}>
             <View style={style.itemDateContainer}>
               <Text style={style.itemDate}>{item.date}</Text>
             </View>
             <Text style={style.itemTitle}>{item.title}</Text>
-            {!this.onItemPressDisabled && (
-              <MaterialCommunityIcons
-                name={'chevron-double-right'}
-                style={style.infoIcon}
-              />
-            )}
+            {/* {!onItemPressDisabled && <Text style={style.info}>{'+ INFO'}</Text>} */}
           </View>
           <Text style={style.itemData}>
             <Text style={style.itemDescriptionTitle}>
@@ -71,6 +79,9 @@ export default class ActivitiesScreen extends Screen {
             </Text>
             <Text style={style.itemDescription}>{item.description}</Text>
           </Text>
+          {!onItemPressDisabled && (
+            <Text style={style.infoBody}>{'MAS INFO > '}</Text>
+          )}
           {item.extraTitle && (
             <TouchableOpacity
               onPress={this.onEmailPress}
@@ -109,10 +120,12 @@ export default class ActivitiesScreen extends Screen {
           >
             {location.address}
           </Text>
-          <MaterialIcons
-            name={'keyboard-arrow-right'}
-            style={style.itemLocationArrow}
-          />
+          {!this.onLocationPressDisabled && (
+            <MaterialIcons
+              name={'keyboard-arrow-right'}
+              style={style.itemLocationArrow}
+            />
+          )}
         </TouchableOpacity>
       </View>
     );
@@ -206,11 +219,16 @@ const style = StyleSheet.create({
 
   /* Info */
 
-  infoButton: {},
-  infoIcon: {
-    alignSelf: 'center',
-    fontSize: 32,
+  info: {
     color: Color.orangeNormal,
+    fontSize: 14,
+    fontFamily: TextStyle.bold,
+  },
+  infoBody: {
+    marginTop: 15,
+    color: Color.orangeNormal,
+    fontSize: 12,
+    fontFamily: TextStyle.bold,
   },
 
   /*

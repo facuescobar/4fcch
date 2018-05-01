@@ -19,6 +19,7 @@ export const stackNavigationOptionsDefault = {
     textAlign: 'center',
   },
   headerTintColor: Color.white,
+  headerBackTitle: null,
 };
 
 export const NavigationProps = {
