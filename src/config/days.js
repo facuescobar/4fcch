@@ -137,7 +137,7 @@ export default {
           headerTitle: 'Sábado 5 - 10 a 14hs',
           tag: 'Seminario',
           title: 'Seminario Práctico Stop Motion',
-          subtitle: 'a cargo de Matías Fiandrino y Pablo Ceccarelli',
+          subtitle: 'A cargo de Matías Fiandrino y Pablo Ceccarelli',
           description:
             'El seminario de Stop Motion se plantea como una introducción a la técnica de la animación cuadro a cuadro. Proporciona un panorama general para comprender cómo se genera la ilusión de movimiento a partir de imágenes fijas y los elementos pertenecientes al audiovisual, lo que permitirá a quienes asistan, la posibilidad de construir historias y universos que desaten nuestra imaginación, lográndolo con los recursos que podamos tener al alcance de la mano.',
         },
@@ -153,7 +153,7 @@ export default {
           tag: 'Taller',
           title: 'Taller de Cine | Para todas las edades.',
           description:
-            'Taller de cine para todas las edades, a cargo de la Prof. Andrea Brandoni. Más proyección películas',
+            'Taller de cine para todas las edades, a cargo de la Prof. Andrea Brandoni. Más proyección películas.',
         },
       },
       {

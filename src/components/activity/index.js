@@ -99,6 +99,7 @@ export default class ActivityScreen extends Screen {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Color.white,
   },
   head: {
     flexDirection: 'row',
