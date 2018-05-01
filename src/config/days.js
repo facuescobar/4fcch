@@ -21,6 +21,7 @@ export default {
           tag: 'Proyección',
           title: 'Gilda, no me arrepiento de este amor',
           subtitle: 'con Natalia Oreiro',
+          image: 'frameGilda',
           description:
             'Esposa, madre y maestra jardinera de Devoto, con 30 años, Myriam Alejandra Bianchi decide cambiar el rumbo de su vida para siempre. Con su dulce voz, Gilda marcó la música tropical y se convirtió en un suceso de popularidad. Cuatro años más tarde, murió trágicamente en una ruta camino a la provincia de Entre Ríos. Su música influyó a artistas de todos estilos y diferentes generaciones y su figura trascendió fronteras.',
         },
@@ -39,6 +40,12 @@ export default {
         date: '18:00hs',
         descriptionTitle: 'Películas para toda la familia.',
         location: 'BO',
+        page: {
+          headerTitle: 'Viernes 4 - 18:00hs',
+          tag: 'Proyección',
+          title: 'Proyección de Películas',
+          description: 'Películas para toda la familia.',
+        },
       },
     ],
     contests: [
@@ -152,6 +159,7 @@ export default {
           headerTitle: 'Sábado 5 - 15hs',
           tag: 'Taller',
           title: 'Taller de Cine | Para todas las edades.',
+          image: 'frameTallerCine',
           description:
             'Taller de cine para todas las edades, a cargo de la Prof. Andrea Brandoni. Más proyección películas.',
         },
@@ -163,9 +171,10 @@ export default {
           "De Laura Ortego y Leonel D'Agostino, filmada en la ciudad de Chascomús.\n\nLa película narra la llegada de la comunidad Laosiana a nuestra ciudad.",
         location: 'TB',
         page: {
-          headerTitle: 'Sábado 5 - 16:00hs',
+          headerTitle: 'Sábado 5 - 16hs',
           tag: 'Estreno',
           title: 'Estreno de "Rio Mekong"',
+          image: 'frameRioMekong',
           description:
             "De Laura Ortego y Leonel D'Agostino, filmada en la ciudad de Chascomús. A los 16 años, Vanit Ritchanaporn cruzó a nado el Río Mekong para escapar de la guerra civil en su Laos natal tras la Guerra de Vietnam. En 1979 llegó como refugiado a la Argentina. Hoy vive con su familia en Chascomús, donde preside la comunidad laosiana más grande de Buenos Aires. En cada uno de sus actos cotidianos, Vanit busca mantener viva su memoria y reconstruir un puente con su tierra natal que se ha perdido para siempre.",
         },
@@ -194,6 +203,7 @@ export default {
           headerTitle: 'Sábado 5 - 00:30hs',
           tag: 'Homenaje a Virus',
           title: 'Muestra de película\n"Superficies de Placer"',
+          image: 'frameSuperficies',
           description:
             'Película “Superficies de placer”, un film homenaje al rock al nacional, es una obra de producción colectiva llevada a cabo por jóvenes realizadores/as, estudiantes que cursaron en el año 2017 la cátedra Realización 4 (Facultad de Bellas Artes perteneciente a la Universidad Nacional de La Plata), a propósito del 30º aniversario del surgimiento disco homónimo de la banda platense “Virus” y del 50º aniversario del nacimiento del Rock Nacional.',
         },
@@ -348,6 +358,7 @@ export default {
           tag: 'Taller',
           title: 'Taller práctico de Cine para todas las edades',
           subtitle: 'A cargo de María Etcheverriborde.',
+          image: 'frameTallerCine',
           description:
             'Breve resumen del taller para les interesades: El taller se propone como un espacio multidimensional donde se presenten las herramientas de construcción del lenguaje audiovisual necesarias para construir un cortometraje. Estar detrás de cámara y construir un relato (en una sola clase) son algunos de los desafíos que tendremos en el taller ! Te esperamos!',
         },
@@ -357,6 +368,12 @@ export default {
         date: '15:00hs',
         descriptionTitle: 'Películas para toda la familia',
         location: 'BEP',
+        page: {
+          headerTitle: 'Domingo 6 - 15hs',
+          tag: 'Proyección',
+          title: 'Proyección de Películas',
+          description: 'Películas para toda la familia.',
+        },
       },
       {
         title: 'Cierre del Festival',
@@ -365,9 +382,10 @@ export default {
           'Proyección de los trabajos realizados en los espacios de formación.\n\nPremiación y gran cierre con la Orquesta Escuela de Chascomús.',
         location: 'TB',
         page: {
-          headerTitle: 'Domingo 6 - 15hs',
+          headerTitle: 'Domingo 6 - 19.30hs',
           tag: 'Cierre del Festival',
           title: 'Cierre con La Orquesta Escuela + proyección de trabajos',
+          image: 'frameOrquestaEscuela',
           description:
             'La Orquesta Escuela de la ciudad de Chascomús, en sus 20 años, da cierre a la cuarta edición del festival. Primera Orquesta-Escuela del país. Modelo pedagógico de la Fundación SOIJAr, referente del Maestro Abreu y "El Sistema" Venezuela. Dir. Ma.Valeria Atela',
         },

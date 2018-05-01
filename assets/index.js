@@ -37,6 +37,12 @@ export default {
   provincia: require('./sponsors/provincia.png'),
   radio: require('./sponsors/radio.png'),
   teresamir: require('./sponsors/teresamir.png'),
+
+  frameGilda: require('./frames/gilda.jpg'),
+  frameOrquestaEscuela: require('./frames/orquestaescuela.jpg'),
+  frameRioMekong: require('./frames/riomekong.jpg'),
+  frameSuperficies: require('./frames/superficiesdeplacer.jpg'),
+  frameTallerCine: require('./frames/tallerdecine.jpg'),
 };
 
 export const fonts = {

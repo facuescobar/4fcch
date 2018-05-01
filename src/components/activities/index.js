@@ -71,7 +71,6 @@ export default class ActivitiesScreen extends Screen {
               <Text style={style.itemDate}>{item.date}</Text>
             </View>
             <Text style={style.itemTitle}>{item.title}</Text>
-            {/* {!onItemPressDisabled && <Text style={style.info}>{'+ INFO'}</Text>} */}
           </View>
           <Text style={style.itemData}>
             <Text style={style.itemDescriptionTitle}>
@@ -79,9 +78,6 @@ export default class ActivitiesScreen extends Screen {
             </Text>
             <Text style={style.itemDescription}>{item.description}</Text>
           </Text>
-          {!onItemPressDisabled && (
-            <Text style={style.infoBody}>{'MAS INFO > '}</Text>
-          )}
           {item.extraTitle && (
             <TouchableOpacity
               onPress={this.onEmailPress}
@@ -96,36 +92,38 @@ export default class ActivitiesScreen extends Screen {
               </Text>
             </TouchableOpacity>
           )}
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          activeOpacity={0.75}
-          onPress={() => {
-            this.onLocationPress(location.initials);
-          }}
-          disabled={this.onLocationPressDisabled}
-          style={style.itemLocation}
-        >
-          <MaterialCommunityIcons
-            name={'map-marker-radius'}
-            style={style.itemLocationIcon}
-          />
-
-          <Text style={style.itemLocationInitials}>{location.initials}</Text>
-          <Text style={style.itemLocationTitle}>{location.title}</Text>
-          <Text
-            style={style.itenLocationAdress}
-            numberOfLines={1}
-            ellipsizeMode={'tail'}
-          >
-            {location.address}
-          </Text>
-          {!this.onLocationPressDisabled && (
-            <MaterialIcons
-              name={'keyboard-arrow-right'}
-              style={style.itemLocationArrow}
-            />
+          {!onItemPressDisabled && (
+            <Text style={style.infoBody}>{'MAS INFO > '}</Text>
           )}
+          <TouchableOpacity
+            activeOpacity={0.75}
+            onPress={() => {
+              this.onLocationPress(location.initials);
+            }}
+            disabled={this.onLocationPressDisabled}
+            style={style.itemLocation}
+          >
+            <MaterialCommunityIcons
+              name={'map-marker-radius'}
+              style={style.itemLocationIcon}
+            />
+
+            <Text style={style.itemLocationInitials}>{location.initials}</Text>
+            <Text style={style.itemLocationTitle}>{location.title}</Text>
+            <Text
+              style={style.itenLocationAdress}
+              numberOfLines={1}
+              ellipsizeMode={'tail'}
+            >
+              {location.address}
+            </Text>
+            {!this.onLocationPressDisabled && (
+              <MaterialIcons
+                name={'keyboard-arrow-right'}
+                style={style.itemLocationArrow}
+              />
+            )}
+          </TouchableOpacity>
         </TouchableOpacity>
       </View>
     );
@@ -236,7 +234,7 @@ const style = StyleSheet.create({
    */
 
   itemLocation: {
-    paddingTop: 20,
+    paddingTop: 15,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',

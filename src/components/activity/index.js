@@ -11,6 +11,7 @@ import Config from 'config';
 import { Color, TextStyle, Device } from 'styles';
 import assets from 'assets';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { BlurView } from 'expo';
 
 export default class ActivityScreen extends Screen {
   screenBackground = Color.white;
@@ -19,12 +20,13 @@ export default class ActivityScreen extends Screen {
     super(props);
 
     this.state = {
+      loaded: false,
       activity: props.navigation.state.params.activity,
       location: props.navigation.state.params.location,
     };
   }
 
-  onLocationPressDisabled = true;
+  onLocationPressDisabled = false;
   onLocationPress = initials => {
     this._navigate('map', {
       zoomTo: initials,
@@ -48,7 +50,19 @@ export default class ActivityScreen extends Screen {
           {page.subtitle && <Text style={style.subtitle}>{page.subtitle}</Text>}
           {page.image && (
             <View style={style.imageContainer}>
-              <Image style={style.image} source={assets[page.image]} />
+              <Image
+                style={style.imageBlur}
+                source={assets[page.image]}
+                resizeMode={'cover'}
+                blurRadius={25}
+              />
+              <BlurView tint="dark" style={StyleSheet.absoluteFill}>
+                <Image
+                  style={style.image}
+                  source={assets[page.image]}
+                  resizeMode={'contain'}
+                />
+              </BlurView>
             </View>
           )}
           <Text style={style.description}>{page.description}</Text>
@@ -120,9 +134,6 @@ const style = StyleSheet.create({
     padding: 10,
     color: Color.grayDark,
   },
-  imageContainer: {
-    height: Device.width(),
-  },
   body: {
     padding: 20,
   },
@@ -140,11 +151,23 @@ const style = StyleSheet.create({
     paddingVertical: 5,
     marginBottom: 10,
   },
+  imageContainer: {
+    flex: 1,
+    marginBottom: 15,
+    width: Device.width() - 40,
+    height: Device.width() * 0.8,
+    backgroundColor: Color.black,
+  },
+  imageBlur: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    opacity: 0.6,
+  },
   image: {
     flex: 1,
     width: undefined,
     height: undefined,
-    marginBottom: 15,
   },
   description: {
     fontSize: 14,
@@ -164,11 +187,11 @@ const style = StyleSheet.create({
   },
 
   /*
-     * Item Location
-     */
+   * Item Location
+   */
 
   itemLocation: {
-    paddingTop: 20,
+    paddingTop: 15,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
