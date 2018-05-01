@@ -150,10 +150,12 @@ export default {
         },
       },
       {
-        title: 'Taller de Cine | Para todas las edades.',
+        title: 'Taller de Cine',
         date: '15:00hs',
+        descriptionTitle:
+          'Para todas las edades, a cargo de la Prof. Andrea Brandoni Hardie.\n\n',
         description:
-          'A cargo de la Prof. Andrea Brandoni Hardie.\n\nLos trabajos realizados en el seminario serán proyectados en el cierre del festival.',
+          'Los trabajos realizados en el seminario serán proyectados en el cierre del festival.',
         location: 'BEH',
         page: {
           headerTitle: 'Sábado 5 - 15hs',
