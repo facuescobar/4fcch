@@ -19,7 +19,7 @@ export default class App extends React.Component {
       if (update.isAvailable) {
         await Updates.fetchUpdateAsync();
 
-        Updates.reloadFromCache();
+        Updates.reload();
       }
     } catch (error) {
       // Just continue initializing the app
