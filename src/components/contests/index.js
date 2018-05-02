@@ -9,16 +9,20 @@ import {
   StyleSheet,
   SectionList,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import Screen from 'components/screen';
-import { Color, TextStyle } from 'styles';
+import { Color, TextStyle, Device } from 'styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import assets from 'assets';
+import { find } from 'lodash';
 
 export default class ContestsScreen extends Screen {
   constructor(props) {
     super(props);
 
     this.state = {
+      title: props.screenProps.title,
       locations: props.screenProps.locations,
       contests: props.screenProps.contests,
     };
@@ -29,6 +33,22 @@ export default class ContestsScreen extends Screen {
       'map',
       {
         zoomTo: initials,
+      },
+      true,
+    );
+  };
+
+  onItemPress = (section, contest, location) => {
+    this._navigate(
+      'contest',
+      {
+        title: this.state.title + ' - ' + section.date,
+        contest: {
+          date: section.date,
+          tagHead: section.title,
+          ...contest,
+        },
+        location,
       },
       true,
     );
@@ -58,20 +78,36 @@ export default class ContestsScreen extends Screen {
     );
   };
 
-  _renderSection = ({ item }) => {
-    return (
-      <View style={style.item}>
-        {item.band && <Text style={style.itemBand}>{item.band}</Text>}
-        {item.tag && (
-          <Text style={style.itemTag}>{item.tag.toUpperCase()}</Text>
-        )}
+  _renderContest = ({ item, section }) => {
+    const location = find(this.state.locations, { initials: section.location });
 
-        <Text style={style.itemTitle}>{item.title}</Text>
-        <Text style={style.itemAuthor}>
-          <Text style={style.itemAuthorPre}>{'de '}</Text>
-          {item.author}
-        </Text>
-      </View>
+    return (
+      <TouchableOpacity
+        style={style.item}
+        activeOpacity={0.75}
+        onPress={() => {
+          this.onItemPress(section, item, location);
+        }}
+      >
+        <View style={style.itemThumbnail}>
+          <Image
+            style={style.itemImage}
+            source={assets[item.imageThumb]}
+            resizeMode={'cover'}
+          />
+        </View>
+        <View style={style.itemBody}>
+          {item.band && <Text style={style.itemBand}>{item.band}</Text>}
+          {item.tag && (
+            <Text style={style.itemTag}>{item.tag.toUpperCase()}</Text>
+          )}
+          <Text style={style.itemTitle}>{item.title}</Text>
+          <Text style={style.itemAuthor}>
+            <Text style={style.itemAuthorPre}>{'de '}</Text>
+            {item.author}
+          </Text>
+        </View>
+      </TouchableOpacity>
     );
   };
 
@@ -79,7 +115,7 @@ export default class ContestsScreen extends Screen {
     return (
       <View style={style.container}>
         <SectionList
-          renderItem={this._renderSection}
+          renderItem={this._renderContest}
           renderSectionHeader={this._renderSectionHeader}
           sections={this.state.contests}
           keyExtractor={(item, index) => item + index}
@@ -146,6 +182,24 @@ const style = StyleSheet.create({
     padding: 20,
     borderBottomColor: Color.orangeLight,
     borderBottomWidth: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  itemThumbnail: {
+    width: 80,
+    height: 80,
+    marginRight: 10,
+    borderRadius: 5,
+    backgroundColor: 'tomato',
+  },
+  itemImage: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    borderRadius: 5,
+  },
+  itemBody: {
+    flex: 1,
   },
   itemBand: {
     fontSize: 14,
@@ -159,7 +213,7 @@ const style = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 17,
-    fontFamily: TextStyle.black,
+    fontFamily: TextStyle.blackSC,
     color: Color.orangeNormal,
     paddingBottom: 3,
   },

@@ -7,6 +7,7 @@ import { navigatorProps, stackNavigationOptions } from 'navigation';
 import HomeScreen from 'components/home';
 import DayScreen from 'components/day';
 import ActivityScreen from 'components/activity';
+import ContestScreen from 'components/contest';
 
 export default StackNavigator(
   {
@@ -24,6 +25,12 @@ export default StackNavigator(
     },
     activity: {
       screen: ActivityScreen,
+      navigationOptions: stackNavigationOptions({
+        title: 'Actividad',
+      }),
+    },
+    contest: {
+      screen: ContestScreen,
       navigationOptions: stackNavigationOptions({
         title: 'Actividad',
       }),
